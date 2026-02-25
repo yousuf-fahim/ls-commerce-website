@@ -1,0 +1,30 @@
+---
+description: Component development guidelines
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Component Guidelines
+
+## Structure
+Each section of the page is its own component file:
+- `Header.tsx` – sticky nav, mobile hamburger
+- `Hero.tsx` – centered headline + subtext
+- `About.tsx` – Über uns section
+- `Services.tsx` – Tätigkeitsfelder with 3 cards
+- `Structure.tsx` – Struktur bullet points
+- `Contact.tsx` – Address + contact form
+- `Footer.tsx` – Copyright line
+
+## When Adding New Sections
+1. Create component in `src/components/`
+2. Use same spacing pattern: `px-6 py-28`, inner `mx-auto max-w-[1100px]`
+3. Section title: `text-[13px] font-medium tracking-widest uppercase text-[#f97627]`
+4. Add `id` attribute for anchor nav scrolling
+5. Add corresponding nav link in `Header.tsx`
+6. Import and add to `App.tsx` in correct order
+
+## shadcn/ui Usage
+- Add new components via `npx shadcn@latest add [component]`
+- Never modify files in `src/components/ui/` directly
+- Compose shadcn primitives in custom components

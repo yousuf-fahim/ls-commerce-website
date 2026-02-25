@@ -1,0 +1,81 @@
+---
+description: Project-wide conventions for LS Commerce GmbH portfolio website
+globs: **/*
+alwaysApply: true
+---
+
+# LS Commerce GmbH – Portfolio Website
+
+## Project Overview
+Single-page portfolio website for **LS Commerce GmbH**, a Swiss digital commerce company.
+- **Stack**: React, Vite, TypeScript, Tailwind CSS v4, shadcn/ui, lucide-react
+- **Language**: German only – all UI text in German
+- **Design**: Swiss minimalism – clean, quiet, lots of whitespace
+
+## Design System
+
+### Colors (matches VexaMiner / vexa-flasher brand)
+- Background: white (`bg-white`)
+- Text primary: `text-zinc-900` (weight 400–500)
+- Text secondary: `text-zinc-500` / `text-zinc-600`
+- Primary accent: `#f97627` (orange-600) – used for section titles, icons, buttons, highlights
+- Orange scale: `orange-400` through `orange-600` for interactive elements
+- Borders/dividers: `border-zinc-100` or `border-zinc-200`
+- No gradients. No bright colors outside the orange accent palette.
+
+### Typography
+- System font stack (default Tailwind)
+- Section titles: 13px, uppercase, tracking-widest, `text-[#f97627]`
+- Body text: 16px, font-normal, relaxed leading
+- Max content width: `max-w-[1100px]` centered
+
+### Spacing
+- Very large section padding: `py-28` minimum
+- Generous gaps between elements
+- Sections separated by thin zinc-100 borders
+
+### Components
+- Use shadcn/ui components – import from `@/components/ui/*`
+- No rounded corners on custom elements (cards, inputs, buttons use `rounded-none`)
+- Cards: no shadow, thin border, white background
+- Buttons: `rounded-none`, `bg-orange-600 hover:bg-orange-500`, white text
+
+### Layout
+- Single page with scrolling sections
+- Sticky header with thin bottom border
+- Max width 1100px, centered with `mx-auto`
+- Responsive: mobile-first, grid collapses gracefully
+
+## Code Conventions
+
+### Imports
+- Use `@/` path alias for all src imports
+- shadcn components: `@/components/ui/[component]`
+- Custom components: `@/components/[Component]`
+
+### Component Style
+- Named exports for components (no default except App)
+- Functional components only
+- Props typed inline or with explicit interface
+- Keep components focused – one section per file
+
+### Files
+- Components in `src/components/`
+- UI primitives in `src/components/ui/` (managed by shadcn)
+- Utilities in `src/lib/`
+
+## Content Rules
+- All text in German exactly as specified
+- No stock photos of people
+- No product images
+- No specific brand names
+- No founder/team information
+- Professional, neutral Swiss tech company tone
+- No SEO fluff or marketing buzzwords
+
+## Restrictions
+- No animations except optional soft fade on scroll
+- No dark mode (light only)
+- No slideshows or carousels
+- No external API calls (contact form logs to console)
+- No router needed – single page with anchor scrolling
