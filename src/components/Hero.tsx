@@ -98,7 +98,7 @@ function AnimatedStat({
   delay: number
   countTo?: number
 }) {
-  const { count, ref } = useCountUp(countTo ?? 0, 1400)
+  const { count, ref } = useCountUp(countTo ?? 0, 1400, (delay + 0.6) * 1000)
 
   return (
     <motion.div

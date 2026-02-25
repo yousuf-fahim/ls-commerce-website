@@ -7,7 +7,6 @@ const navLinks = [
   { label: "Über uns", href: "#ueber-uns", id: "ueber-uns" },
   { label: "Tätigkeitsfelder", href: "#taetigkeitsfelder", id: "taetigkeitsfelder" },
   { label: "Struktur", href: "#struktur", id: "struktur" },
-  { label: "Kontakt", href: "#kontakt", id: "kontakt" },
 ]
 
 export function Header() {
