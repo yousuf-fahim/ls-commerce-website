@@ -108,9 +108,9 @@ function AnimatedStat({
       transition={{ duration: 0.6, delay, ease }}
       className="text-center"
     >
-      <div className="text-[28px] font-semibold tracking-tight text-white">
-        {countTo !== undefined ? count : value}
-        {suffix && <span className="text-orange-400">{suffix}</span>}
+      <div className="text-[28px] font-semibold tracking-tight text-white" translate="no">
+        <span className="notranslate">{countTo !== undefined ? count : value}</span>
+        {suffix && <span className="notranslate text-orange-400">{suffix}</span>}
       </div>
       <div className="mt-1 text-[12px] font-normal tracking-wide text-zinc-500">{label}</div>
     </motion.div>
