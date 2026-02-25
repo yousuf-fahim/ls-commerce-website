@@ -8,7 +8,7 @@ export function useScrollState() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 120)
+      setScrolled(window.scrollY > 50)
     }
 
     handleScroll()
