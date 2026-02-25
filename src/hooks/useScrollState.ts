@@ -7,13 +7,22 @@ export function useScrollState() {
   const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+    const hero = document.getElementById("hero")
+    if (!hero) {
+      const handleScroll = () => setScrolled(window.scrollY > 80)
+      handleScroll()
+      window.addEventListener("scroll", handleScroll, { passive: true })
+      return () => window.removeEventListener("scroll", handleScroll)
     }
 
-    handleScroll()
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      // trigger when hero fully exits viewport top (accounting for header height)
+      { threshold: 0, rootMargin: "-1px 0px 0px 0px" },
+    )
+
+    observer.observe(hero)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {

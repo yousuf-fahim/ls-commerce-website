@@ -119,7 +119,7 @@ function AnimatedStat({
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-zinc-950">
+    <section id="hero" className="relative overflow-hidden bg-zinc-950">
       <div className="px-6 pt-32 pb-16 md:pt-40 md:pb-24">
         {/* Grid background */}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:48px_48px]" />
