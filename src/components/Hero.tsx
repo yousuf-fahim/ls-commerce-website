@@ -232,8 +232,9 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Gradient bridge to white content */}
-      <div className="h-24 bg-gradient-to-b from-zinc-950 to-white" />
+      {/* Clean edge transition */}
+      <div className="relative h-px w-full bg-zinc-800" />
+      <div className="h-16 bg-gradient-to-b from-zinc-950 via-zinc-950/40 to-transparent" />
     </section>
   )
 }
