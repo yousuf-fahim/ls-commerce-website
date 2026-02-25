@@ -35,14 +35,19 @@ export function Services() {
         <div className="grid gap-6 md:grid-cols-3">
           {services.map((service, i) => (
             <FadeIn key={service.title} delay={0.1 + i * 0.1}>
-              <Card className="h-full rounded-none border border-zinc-200 bg-white shadow-none transition-colors hover:border-orange-200">
-                <CardHeader className="pb-3">
-                  <service.icon className="mb-3 h-5 w-5 text-orange-500" strokeWidth={1.5} />
+              <Card className="group relative h-full overflow-hidden rounded-none border border-zinc-200 bg-white shadow-none transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+                {/* Orange accent bar */}
+                <div className="absolute top-0 left-0 h-full w-0 bg-orange-500 transition-all duration-300 group-hover:w-[3px]" />
+                <CardHeader className="pb-3 pl-7">
+                  <service.icon
+                    className="mb-3 h-5 w-5 text-zinc-400 transition-colors duration-300 group-hover:text-orange-500"
+                    strokeWidth={1.5}
+                  />
                   <CardTitle className="text-[15px] font-medium text-zinc-900">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pl-7">
                   <p className="text-[14px] leading-relaxed text-zinc-500">
                     {service.description}
                   </p>
