@@ -43,24 +43,40 @@ function NetworkGrid() {
           y2={nodes[to].cy}
           stroke="#f97627"
           strokeWidth="0.5"
-          strokeOpacity="0.35"
           initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.4 + i * 0.05, ease }}
+          animate={{ pathLength: 1, strokeOpacity: [0.2, 0.45, 0.2] }}
+          transition={{
+            pathLength: { duration: 1.2, delay: 0.4 + i * 0.05, ease },
+            strokeOpacity: { duration: 4 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: 1.5 + i * 0.15 },
+          }}
         />
       ))}
-      {nodes.map((node, i) => (
-        <motion.circle
-          key={`node-${i}`}
-          cx={node.cx}
-          cy={node.cy}
-          r={node.r}
-          fill="#f97627"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.8, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 + i * 0.06, ease }}
-        />
-      ))}
+      {nodes.map((node, i) => {
+        const dx = (i % 3 === 0 ? 6 : i % 3 === 1 ? -5 : 4)
+        const dy = (i % 2 === 0 ? -5 : 6)
+        return (
+          <motion.circle
+            key={`node-${i}`}
+            cx={node.cx}
+            cy={node.cy}
+            r={node.r}
+            fill="#f97627"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0.6, 0.9, 0.6],
+              scale: 1,
+              cx: [node.cx, node.cx + dx, node.cx - dx * 0.5, node.cx],
+              cy: [node.cy, node.cy + dy, node.cy - dy * 0.5, node.cy],
+            }}
+            transition={{
+              opacity: { duration: 3 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
+              scale: { duration: 0.5, delay: 0.3 + i * 0.06, ease },
+              cx: { duration: 6 + (i % 4), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 },
+              cy: { duration: 7 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 },
+            }}
+          />
+        )
+      })}
       {[nodes[2], nodes[5], nodes[9]].map((node, i) => (
         <motion.circle
           key={`pulse-${i}`}
@@ -132,16 +148,6 @@ export function Hero() {
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             {/* Left: text */}
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease }}
-                className="mb-6 inline-flex items-center gap-2 border border-orange-500/25 bg-orange-500/10 px-3 py-1.5 text-[12px] font-medium tracking-wide text-orange-400"
-              >
-                <Globe className="h-3.5 w-3.5" />
-                Schweizer Unternehmen
-              </motion.div>
-
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}

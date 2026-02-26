@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 const legalLinks = [
   { label: "Impressum", to: "/impressum" },
   { label: "Datenschutz", to: "/datenschutz" },
-  { label: "AGB", to: "/agb" },
-  { label: "Widerruf", to: "/widerruf" },
 ]
 
 export function Footer() {
