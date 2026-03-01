@@ -16,6 +16,9 @@ export function Impressum() {
         E-Mail: <a href="mailto:info@ls-commerce.ch">info@ls-commerce.ch</a>
       </p>
 
+      <h3>UID (CHE)</h3>
+      <p>CHE-363.151.675</p>
+
       <h3>Vertretungsberechtigte Person(en)</h3>
       <p>Geschäftsführung gemäss Handelsregistereintrag.</p>
 
